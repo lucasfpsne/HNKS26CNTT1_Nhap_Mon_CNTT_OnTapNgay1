@@ -1,3 +1,4 @@
+
 # BÀI LÀM ÔN TẬP NGÀY 1
 
 ## Phần A - Tổ chức thư mục bằng GUI
@@ -31,9 +32,6 @@
 - `Lich Hoc.txt` → `lich_hoc.txt`
 - `Hoc Vien Khoa 3.xlsx` → `hoc_vien_khoa_3.xlsx`
 - `Access.log` → `access.log`
-
-**Giải thích:** Snake_case sử dụng chữ thường và dấu gạch dưới `_` để ngăn cách các từ. Giữ nguyên loại file bằng cách giữ phần mở rộng tương ứng.
-
 ### A5. Chuyển file vào các thư mục tương ứng
 
 #### Chuyển file Excel vào data
@@ -97,12 +95,6 @@ Path
 ```powershell
 ls -Force
 ```
-
-**Giải thích:**
-
-- `ls`: Liệt kê file và thư mục.
-- `-Force`: Hiển thị cả các file ẩn.
-
 **Kết quả cần kiểm tra:**
 
 - 5 thư mục `docs`, `media`, `data`, `logs`, `archive`.
@@ -129,9 +121,6 @@ mv .\logo_trung_tam.png .\media\
 ```powershell
 mv .\anh_lop_hoc.jpg .\media\
 ```
-
-**Giải thích:** Lệnh `mv` dùng để di chuyển file từ vị trí hiện tại đến thư mục đích.
-
 ### B4. Sao chép logo từ media vào archive
 
 **Lệnh:**
@@ -139,13 +128,6 @@ mv .\anh_lop_hoc.jpg .\media\
 ```powershell
 cp .\media\logo_trung_tam.png .\archive\
 ```
-
-**Giải thích:**
-
-- `cp`: Sao chép file.
-- `.\media\logo_trung_tam.png`: Đường dẫn file nguồn.
-- `.\archive\`: Thư mục đích.
-
 File logo gốc vẫn được giữ trong `media`.
 
 ### B5. Xóa 2 file .tmp tại thư mục gốc
@@ -161,8 +143,6 @@ rm .\temp_201.tmp
 ```powershell
 rm .\temp_202.tmp
 ```
-
-**Giải thích:** `rm` dùng để xóa file. Mỗi file được xóa bằng một lệnh riêng theo yêu cầu đề bài.
 
 ### B6. Dùng đường dẫn tương đối vào logs, liệt kê nội dung rồi quay lại thư mục gốc
 
@@ -184,12 +164,6 @@ ls -Force
 cd ..
 ```
 
-**Giải thích:**
-
-- `cd .\logs\`: Di chuyển vào thư mục `logs`.
-- `ls -Force`: Hiển thị nội dung, kể cả file ẩn.
-- `cd ..`: Quay lại thư mục cha.
-
 ### B7. Đứng tại docs, sao chép ảnh lớp học từ media sang archive bằng đường dẫn tương đối
 
 #### Di chuyển vào docs
@@ -210,12 +184,6 @@ cp ..\media\anh_lop_hoc.jpg ..\archive\
 cd ..
 ```
 
-**Giải thích:**
-
-- `..`: Đại diện cho thư mục cha.
-- `..\media\anh_lop_hoc.jpg`: Đường dẫn tương đối đến file ảnh nguồn.
-- `..\archive\`: Đường dẫn tương đối đến thư mục đích.
-
 Lệnh sao chép được thực hiện khi đang đứng trong `docs`.
 
 ### B8. Liệt kê toàn bộ dự án kể cả file ẩn
@@ -226,15 +194,80 @@ Lệnh sao chép được thực hiện khi đang đứng trong `docs`.
 ls -Recurse -Force
 ```
 
-**Giải thích:**
+**Kết quả:**
 
-- `ls`: Liệt kê nội dung.
-- `-Recurse`: Liệt kê cả các thư mục con.
-- `-Force`: Hiển thị cả file ẩn.
+## B8. Liệt kê toàn bộ dự án kể cả file ẩn
+
+**Lệnh:**
+
+```powershell
+ls -Recurse -Force
+```
 
 **Kết quả:**
 
-[Dán toàn bộ kết quả thực tế của lệnh từ PowerShell vào đây.]
+```text
+PS C:\Users\admin\Desktop\trung-tam-tieng-anh> ls -Recurse -Force
+
+    Directory: C:\Users\admin\Desktop\trung-tam-tieng-anh
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        10/20/2026   3:20 PM                archive
+d-----        10/20/2026   3:03 PM                data
+d-----        10/20/2026   3:21 PM                docs
+d-----        10/20/2026   3:07 PM                logs
+d-----        10/20/2026   3:19 PM                media
+-a----        10/20/2026   2:40 PM            128 .env
+-a----        10/20/2026   3:11 PM           1861 bai_lam_ngay1.md
+
+
+    Directory: C:\Users\admin\Desktop\trung-tam-tieng-anh\archive
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----        10/20/2026   2:43 PM              0 anh_lop_hoc.jpg
+-a----        10/20/2026   2:43 PM              0 logo_trung_tam.png
+
+
+    Directory: C:\Users\admin\Desktop\trung-tam-tieng-anh\data
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----        10/20/2026   2:59 PM              0 hoc_vien_khoa_3.xlsx
+
+
+    Directory: C:\Users\admin\Desktop\trung-tam-tieng-anh\docs
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----        10/20/2026   2:44 PM              0 lich_hoc.txt
+
+
+    Directory: C:\Users\admin\Desktop\trung-tam-tieng-anh\logs
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----        10/20/2026   2:59 PM              0 access.log
+
+
+    Directory: C:\Users\admin\Desktop\trung-tam-tieng-anh\media
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----        10/20/2026   2:43 PM              0 anh_lop_hoc.jpg
+-a----        10/20/2026   2:43 PM              0 logo_trung_tam.png
+
+PS C:\Users\admin\Desktop\trung-tam-tieng-anh>
+```
+
+**Nhận xét:**
+
+- Đã liệt kê toàn bộ file và thư mục trong dự án.
+- Các file đã được sắp xếp vào đúng thư mục.
+- Hai file `temp_201.tmp` và `temp_202.tmp` đã được xóa.
+- File `.env` vẫn được giữ tại thư mục gốc trên máy.
+- Thư mục `archive` chứa bản sao của logo và ảnh lớp học.
 
 ### Cấu trúc thư mục cần đạt sau khi hoàn thành
 
@@ -261,11 +294,6 @@ trung-tam-tieng-anh/
 ├── bai_lam_ngay1.md
 └── .env
 ```
-
-**Lưu ý:** Hai file `.tmp` đã được xóa. File `.env` vẫn giữ tại thư mục gốc trên máy và không được upload lên GitHub.
-
----
-
 # Tổng kết
 
 Qua bài thực hành, em đã ôn tập các thao tác quản lý file và thư mục bằng GUI và CLI.
@@ -280,7 +308,3 @@ Qua bài thực hành, em đã ôn tập các thao tác quản lý file và thư
 - Sử dụng `rm` để xóa file.
 - Hiểu và sử dụng đường dẫn tương đối `.` và `..`.
 - Biết cách kiểm tra cấu trúc toàn bộ dự án bằng `ls -Recurse -Force`.
-
-# Tự chấm
-
-**Điểm tự chấm:** [Điền sau khi đối chiếu đáp án ngày 21/10/2026].
